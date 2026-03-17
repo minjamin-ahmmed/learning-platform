@@ -71,26 +71,26 @@ export function Footer() {
       <div className="pointer-events-none absolute -top-24 left-1/4 w-96 h-96 bg-background/5 rounded-full blur-3xl" />
       <div className="pointer-events-none absolute top-0 right-1/4 w-64 h-64 bg-background/3 rounded-full blur-3xl" />
 
-      <div className="relative w-11/12 sm:w-10/12 mx-auto pt-16 pb-10">
+      <div className="relative w-11/12 sm:w-10/12 mx-auto pt-12 sm:pt-16 pb-8 sm:pb-10">
 
         {/* Top section: brand + newsletter + links */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-12 border-b border-background/10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 pb-10 sm:pb-12 border-b border-background/10">
 
           {/* Brand col */}
-          <div className="lg:col-span-4 flex flex-col gap-6">
-            <Link href="/" className="flex items-center gap-2.5 w-fit group">
+          <div className="lg:col-span-4 flex flex-col gap-5">
+            <Link href="/" className="flex items-center gap-2.5 w-fit">
               <div className="flex size-9 items-center justify-center rounded-xl bg-background text-foreground font-bold text-lg tracking-tight">
                 E
               </div>
               <span className="text-xl font-bold tracking-tight text-background">EduLearn</span>
             </Link>
 
-            <p className="text-sm text-background/50 leading-relaxed max-w-xs">
+            <p className="text-sm text-background/50 leading-relaxed">
               Premium online education built for the next generation of learners. Learn from the world's best — on your own terms.
             </p>
 
-            {/* Newsletter */}
-            <div className="flex items-center gap-2 bg-background/8 border border-background/10 rounded-2xl p-1.5 max-w-xs">
+            {/* Newsletter — full width on mobile, capped on desktop */}
+            <div className="flex items-center gap-2 bg-background/8 border border-background/10 rounded-2xl p-1.5 w-full sm:max-w-xs">
               <input
                 type="email"
                 placeholder="Your email address"
@@ -117,22 +117,22 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Links cols */}
-          <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-8">
+          {/* Links cols — 3 equal cols on mobile too */}
+          <div className="lg:col-span-8 grid grid-cols-3 gap-4 sm:gap-8">
             {Object.entries(links).map(([category, items]) => (
               <div key={category}>
-                <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-background/35 mb-5">
+                <p className="text-[10px] sm:text-[11px] font-semibold tracking-[0.12em] uppercase text-background/35 mb-4 sm:mb-5">
                   {category}
                 </p>
-                <ul className="space-y-3">
+                <ul className="space-y-2.5 sm:space-y-3">
                   {items.map(({ label, href }) => (
                     <li key={label}>
                       <Link
                         href={href}
-                        className="group inline-flex items-center gap-1 text-sm text-background/60 hover:text-background transition-colors duration-200"
+                        className="group inline-flex items-center gap-1 text-xs sm:text-sm text-background/60 hover:text-background transition-colors duration-200"
                       >
-                        {label}
-                        <ArrowUpRight className="size-3 opacity-0 -translate-y-0.5 translate-x-0.5 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-200" />
+                        <span className="leading-snug">{label}</span>
+                        <ArrowUpRight className="size-3 shrink-0 opacity-0 -translate-y-0.5 translate-x-0.5 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-200" />
                       </Link>
                     </li>
                   ))}
@@ -143,7 +143,7 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="pt-6 sm:pt-8 flex flex-col-reverse sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-background/30 tabular-nums">
             © {new Date().getFullYear()} EduLearn Inc. All rights reserved.
           </p>

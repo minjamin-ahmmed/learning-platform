@@ -55,13 +55,12 @@ export function CourseDetails({ id: _id }: { id: string }) {
           DApps.
         </motion.p>
 
-        {/* Stats strip */}
+        {/* Stats strip — 2×2 grid on mobile, single row on md+ */}
         <motion.div
           variants={fadeUp}
           custom={3}
-          className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm"
+          className="grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:items-center sm:gap-x-6 sm:gap-y-2 text-sm"
         >
-          {/* Rating */}
           <div className="flex items-center gap-1.5">
             <span className="font-bold tabular-nums">4.9</span>
             <div className="flex">
@@ -69,24 +68,18 @@ export function CourseDetails({ id: _id }: { id: string }) {
                 <Star key={i} className="size-3.5 fill-foreground text-foreground" />
               ))}
             </div>
-            <span className="text-muted-foreground">(125,432)</span>
+            <span className="text-muted-foreground">(125k)</span>
           </div>
-          <span className="text-border">|</span>
-          {/* Students */}
           <div className="flex items-center gap-1.5 text-muted-foreground">
-            <Users className="size-3.5" />
+            <Users className="size-3.5 shrink-0" />
             <span>245k students</span>
           </div>
-          <span className="text-border">|</span>
-          {/* Duration */}
           <div className="flex items-center gap-1.5 text-muted-foreground">
-            <Clock className="size-3.5" />
+            <Clock className="size-3.5 shrink-0" />
             <span>65 hours</span>
           </div>
-          <span className="text-border">|</span>
-          {/* Lectures */}
           <div className="flex items-center gap-1.5 text-muted-foreground">
-            <BookOpen className="size-3.5" />
+            <BookOpen className="size-3.5 shrink-0" />
             <span>456 lectures</span>
           </div>
         </motion.div>
@@ -95,7 +88,7 @@ export function CourseDetails({ id: _id }: { id: string }) {
         <motion.div
           variants={fadeUp}
           custom={4}
-          className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted-foreground"
+          className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted-foreground"
         >
           <div className="flex items-center gap-2">
             <Avatar className="size-6 ring-1 ring-border">
@@ -110,11 +103,11 @@ export function CourseDetails({ id: _id }: { id: string }) {
             </span>
           </div>
           <div className="flex items-center gap-1.5">
-            <ShieldCheck className="size-3.5" />
+            <ShieldCheck className="size-3.5 shrink-0" />
             <span>Updated 12/2025</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <Globe className="size-3.5" />
+            <Globe className="size-3.5 shrink-0" />
             <span>English, Spanish</span>
           </div>
         </motion.div>
@@ -127,35 +120,66 @@ export function CourseDetails({ id: _id }: { id: string }) {
         transition={{ duration: 0.4, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
       >
         <Tabs defaultValue="curriculum" className="w-full">
-          <TabsList className="w-full justify-start bg-transparent rounded-none h-auto p-0 mb-8 border-b border-border gap-0">
-            {[
-              { label: "Curriculum",  value: "curriculum",  index: "01" },
-              { label: "Overview",    value: "overview",    index: "02" },
-              { label: "Instructor",  value: "instructor",  index: "03" },
-              { label: "Reviews",     value: "reviews",     index: "04" },
-            ].map((tab) => (
-              <TabsTrigger
-                key={tab.value}
-                value={tab.value}
-                className="
-                  group relative flex items-center gap-2 px-6 py-4 rounded-none bg-transparent border-transparent
-                  text-muted-foreground font-medium text-sm tracking-tight
-                  transition-colors duration-200
-                  data-[state=active]:bg-transparent data-[state=active]:shadow-none
-                  data-[state=active]:text-foreground
-                  after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5
-                  after:bg-foreground after:scale-x-0 after:transition-transform after:duration-300 after:origin-left
-                  data-[state=active]:after:scale-x-100
-                  hover:text-foreground
-                "
-              >
-                <span className="font-mono text-[10px] text-muted-foreground/50 group-data-[state=active]:text-foreground/40 transition-colors tabular-nums">
-                  {tab.index}
-                </span>
-                {tab.label}
-              </TabsTrigger>
-            ))}
-          </TabsList>
+          {/* Scrollable pill tabs on mobile, underline tabs on desktop */}
+          <div className="mb-6">
+            {/* Mobile: horizontal scroll pill row */}
+            <div className="lg:hidden -mx-1 px-1 overflow-x-auto scrollbar-none">
+              <TabsList className="inline-flex w-max gap-2 bg-transparent p-0 h-auto">
+                {[
+                  { label: "Curriculum", value: "curriculum" },
+                  { label: "Overview",   value: "overview" },
+                  { label: "Instructor", value: "instructor" },
+                  { label: "Reviews",    value: "reviews" },
+                ].map((tab) => (
+                  <TabsTrigger
+                    key={tab.value}
+                    value={tab.value}
+                    className="
+                      shrink-0 px-4 py-2 rounded-full border border-border text-sm font-medium
+                      bg-transparent text-muted-foreground
+                      transition-all duration-200
+                      data-[state=active]:bg-foreground data-[state=active]:text-background
+                      data-[state=active]:border-foreground data-[state=active]:shadow-none
+                      hover:text-foreground hover:border-foreground/40
+                    "
+                  >
+                    {tab.label}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </div>
+
+            {/* Desktop: underline tabs */}
+            <TabsList className="hidden lg:flex w-full justify-start bg-transparent rounded-none h-auto p-0 border-b border-border gap-0">
+              {[
+                { label: "Curriculum",  value: "curriculum",  index: "01" },
+                { label: "Overview",    value: "overview",    index: "02" },
+                { label: "Instructor",  value: "instructor",  index: "03" },
+                { label: "Reviews",     value: "reviews",     index: "04" },
+              ].map((tab) => (
+                <TabsTrigger
+                  key={tab.value}
+                  value={tab.value}
+                  className="
+                    group relative flex items-center gap-2 px-6 py-4 rounded-none bg-transparent border-transparent
+                    text-muted-foreground font-medium text-sm tracking-tight
+                    transition-colors duration-200
+                    data-[state=active]:bg-transparent data-[state=active]:shadow-none
+                    data-[state=active]:text-foreground
+                    after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5
+                    after:bg-foreground after:scale-x-0 after:transition-transform after:duration-300 after:origin-left
+                    data-[state=active]:after:scale-x-100
+                    hover:text-foreground
+                  "
+                >
+                  <span className="font-mono text-[10px] text-muted-foreground/50 group-data-[state=active]:text-foreground/40 transition-colors tabular-nums">
+                    {tab.index}
+                  </span>
+                  {tab.label}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+          </div>
 
           {/* ── Curriculum ── */}
           <TabsContent value="curriculum" className="space-y-6 mt-0">
@@ -247,28 +271,32 @@ export function CourseDetails({ id: _id }: { id: string }) {
 
           {/* ── Instructor ── */}
           <TabsContent value="instructor" className="mt-0">
-            <div className="flex items-start gap-5 p-6 rounded-2xl border bg-muted/20">
-              <Avatar className="size-16 ring-1 ring-border shrink-0">
-                <AvatarImage src="/thoughtful-man-portrait.png" />
-                <AvatarFallback>AY</AvatarFallback>
-              </Avatar>
-              <div className="space-y-1.5">
-                <h3 className="text-base font-bold tracking-tight">Dr. Angela Yu</h3>
-                <p className="text-xs text-muted-foreground">Lead Instructor — Developer & Bootcamp Director</p>
-                <div className="flex items-center gap-3 text-xs text-muted-foreground pt-1">
-                  <span className="flex items-center gap-1">
-                    <Star className="size-3 fill-foreground text-foreground" /> 4.9 Rating
-                  </span>
-                  <span className="text-border">|</span>
-                  <span>245k+ Students</span>
-                  <span className="text-border">|</span>
-                  <span>12 Courses</span>
+            <div className="p-5 sm:p-6 rounded-2xl border bg-muted/20 space-y-4">
+              <div className="flex items-center gap-4">
+                <Avatar className="size-14 sm:size-16 ring-1 ring-border shrink-0">
+                  <AvatarImage src="/thoughtful-man-portrait.png" />
+                  <AvatarFallback>AY</AvatarFallback>
+                </Avatar>
+                <div>
+                  <h3 className="text-base font-bold tracking-tight">Dr. Angela Yu</h3>
+                  <p className="text-xs text-muted-foreground mt-0.5">Lead Instructor — Developer & Bootcamp Director</p>
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed pt-2 max-w-lg">
-                  Dr. Angela Yu is a developer and lead instructor at the London App Brewery. She has taught over 1 million
-                  students to code and helped many transition into tech careers.
-                </p>
               </div>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  { icon: <Star className="size-3 fill-foreground text-foreground" />, label: "4.9 Rating" },
+                  { icon: <Users className="size-3" />, label: "245k+ Students" },
+                  { icon: <BookOpen className="size-3" />, label: "12 Courses" },
+                ].map(({ icon, label }) => (
+                  <span key={label} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary text-xs font-medium text-muted-foreground">
+                    {icon}{label}
+                  </span>
+                ))}
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Dr. Angela Yu is a developer and lead instructor at the London App Brewery. She has taught over 1 million
+                students to code and helped many transition into tech careers.
+              </p>
             </div>
           </TabsContent>
 

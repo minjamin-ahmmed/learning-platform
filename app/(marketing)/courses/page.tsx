@@ -12,8 +12,15 @@ export default function CoursesPage() {
           </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-8">
-          <aside className="w-full lg:w-64 shrink-0">
+        {/* Mobile: filter bar sits above course list */}
+        <div className="lg:hidden space-y-6">
+          <CourseFilters />
+          <CourseList />
+        </div>
+
+        {/* Desktop: sidebar + course list */}
+        <div className="hidden lg:flex gap-8">
+          <aside className="w-64 shrink-0">
             <CourseFilters />
           </aside>
           <div className="flex-1">
