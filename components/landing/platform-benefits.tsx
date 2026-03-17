@@ -44,7 +44,7 @@ export function PlatformBenefits() {
     <>
       {/* ── Benefits grid ── */}
       <section className="py-20 bg-secondary/10">
-        <div className="w-10/12 mx-auto">
+        <div className="w-11/12 sm:w-10/12 mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl font-bold tracking-tight mb-4">Why Choose EduLearn?</h2>
             <p className="text-muted-foreground text-lg">

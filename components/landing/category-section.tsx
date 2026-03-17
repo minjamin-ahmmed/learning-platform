@@ -16,7 +16,7 @@ const categories = [
 export function CategorySection() {
   return (
     <section className="py-20 bg-secondary/30">
-      <div className="w-10/12 mx-auto">
+      <div className="w-11/12 sm:w-10/12 mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
           <div>
             <h2 className="text-3xl font-bold tracking-tight mb-2">Explore Categories</h2>

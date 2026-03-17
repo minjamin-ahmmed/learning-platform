@@ -71,7 +71,7 @@ export function Footer() {
       <div className="pointer-events-none absolute -top-24 left-1/4 w-96 h-96 bg-background/5 rounded-full blur-3xl" />
       <div className="pointer-events-none absolute top-0 right-1/4 w-64 h-64 bg-background/3 rounded-full blur-3xl" />
 
-      <div className="relative w-10/12 mx-auto pt-16 pb-10">
+      <div className="relative w-11/12 sm:w-10/12 mx-auto pt-16 pb-10">
 
         {/* Top section: brand + newsletter + links */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-12 border-b border-background/10">

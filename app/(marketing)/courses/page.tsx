@@ -3,7 +3,7 @@ import { CourseFilters } from "@/components/courses/course-filters"
 
 export default function CoursesPage() {
   return (
-    <div className="w-10/12 mx-auto py-12">
+    <div className="w-11/12 sm:w-10/12 mx-auto py-12">
       <div className="flex flex-col gap-8">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight mb-4">Explore All Courses</h1>

@@ -68,7 +68,7 @@ export function Testimonials() {
   return (
     /* ── Testimonials scrolling columns ── */
       <section className="bg-background py-20 relative overflow-hidden">
-        <div className="w-10/12 mx-auto">
+        <div className="w-11/12 sm:w-10/12 mx-auto">
 
           {/* Header */}
           <motion.div

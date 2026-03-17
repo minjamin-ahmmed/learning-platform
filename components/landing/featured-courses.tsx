@@ -78,7 +78,7 @@ const tagStyles: Record<string, string> = {
 export function FeaturedCourses() {
   return (
     <section className="py-20 bg-background">
-      <div className="w-10/12 mx-auto">
+      <div className="w-11/12 sm:w-10/12 mx-auto">
 
         {/* Section header */}
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">

@@ -4,7 +4,7 @@ import { CourseSidebar } from "@/components/courses/course-sidebar"
 export default function CourseDetailPage({ params }: { params: { id: string } }) {
   return (
     <div className="border-b bg-muted/30">
-      <div className="w-10/12 mx-auto py-10">
+      <div className="w-11/12 sm:w-10/12 mx-auto py-10">
         <div className="flex flex-col lg:flex-row gap-12">
           <div className="flex-1 min-w-0">
             <CourseDetails id={params.id} />
@@ -16,7 +16,7 @@ export default function CourseDetailPage({ params }: { params: { id: string } })
       </div>
 
       {/* Mobile sidebar */}
-      <div className="lg:hidden w-10/12 mx-auto py-8">
+      <div className="lg:hidden w-11/12 sm:w-10/12 mx-auto py-8">
         <CourseSidebar />
       </div>
     </div>

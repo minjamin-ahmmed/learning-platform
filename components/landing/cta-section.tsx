@@ -8,7 +8,7 @@ import MotionButton from "@/components/ui/motion-button"
 export function CTASection() {
   return (
     <section className="py-20">
-      <div className="w-10/12 mx-auto">
+      <div className="w-11/12 sm:w-10/12 mx-auto">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
