@@ -65,6 +65,21 @@ const courses = [
     tag: "Bestseller",
     category: "Development",
   },
+  {
+    title: "Modern React with Redux [2024]",
+    instructor: "Stephen Grider",
+    rating: 4.7,
+    reviews: "9.8k",
+    students: "180k",
+    duration: "45 hours",
+    lectures: "250 lectures",
+    level: "Intermediate",
+    price: "$94.99",
+    originalPrice: "$219.99",
+    image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&auto=format&fit=crop&q=80",
+    tag: "Updated",
+    category: "Development",
+  },
 ]
 
 const tagStyles: Record<string, string> = {
@@ -103,7 +118,7 @@ export function FeaturedCourses() {
         </div>
 
         {/* Cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-10">
           {courses.map((course, index) => (
             <motion.div
               key={course.title}

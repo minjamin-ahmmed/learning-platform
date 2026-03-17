@@ -81,6 +81,30 @@ const courses = [
     tag: "Bestseller",
     level: "Advanced",
   },
+   {
+    id: "1",
+    title: "Complete Web Development Bootcamp",
+    instructor: "Dr. Angela Yu",
+    rating: 4.9,
+    students: "245k",
+    duration: "65 hours",
+    price: "$89.99",
+    image: "/coding-bootcamp.png",
+    tag: "Bestseller",
+    level: "Beginner",
+  },
+  {
+    id: "2",
+    title: "UI/UX Design Essentials with Figma",
+    instructor: "Gary Simon",
+    rating: 4.8,
+    students: "120k",
+    duration: "25 hours",
+    price: "$74.99",
+    image: "/ui-ux-design-concept.png",
+    tag: "Trending",
+    level: "Intermediate",
+  },
 ]
 
 const tagStyles: Record<string, string> = {
@@ -115,7 +139,7 @@ export function CourseList() {
 
   if (loading) {
     return (
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+      <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8">
         {Array.from({ length: 6 }).map((_, i) => (
           <CourseCardSkeleton key={i} />
         ))}
@@ -152,7 +176,7 @@ export function CourseList() {
       </div>
 
       {/* Grid / List */}
-      <div className={view === "grid" ? "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-6 gap-y-10" : "flex flex-col divide-y divide-border"}>
+      <div className={view === "grid" ? "grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-10" : "flex flex-col divide-y divide-border"}>
         {courses.map((course, index) => (
           <motion.div
             key={course.id}
