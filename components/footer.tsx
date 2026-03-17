@@ -1,5 +1,9 @@
+"use client"
+
 import Link from "next/link"
+import { motion, useInView } from "framer-motion"
 import { ArrowUpRight, Sparkles } from "lucide-react"
+import { useRef } from "react"
 
 const links = {
   Platform: [
@@ -60,20 +64,58 @@ const socials: { label: string; href: string; svg: React.ReactNode }[] = [
   },
 ]
 
-export function Footer() {
-  return (
-    <footer className="relative mt-8 rounded-t-[48px] overflow-hidden bg-foreground text-background">
+const BRAND = "EDUCORE"
 
-      {/* Subtle grain texture overlay */}
+export function Footer() {
+  const ref = useRef<HTMLElement>(null)
+  const isInView = useInView(ref, { once: true, margin: "-10%" })
+
+  return (
+    <footer
+      ref={ref}
+      className="relative mt-8 rounded-t-[48px] overflow-hidden bg-foreground text-background"
+    >
+      {/* Grain texture */}
       <div className="pointer-events-none absolute inset-0 opacity-[0.03] bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJuIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiBmaWx0ZXI9InVybCgjbikiIG9wYWNpdHk9IjEiLz48L3N2Zz4=')]" />
 
-      {/* Glow accents */}
+      {/* Glow blobs */}
       <div className="pointer-events-none absolute -top-24 left-1/4 w-96 h-96 bg-background/5 rounded-full blur-3xl" />
       <div className="pointer-events-none absolute top-0 right-1/4 w-64 h-64 bg-background/3 rounded-full blur-3xl" />
 
+      {/* ── EDUCORE absolute wordmark — dead-center behind all content ── */}
+      <div
+        className="pointer-events-none select-none absolute inset-0 flex items-center justify-center overflow-hidden"
+        aria-hidden="true"
+      >
+        <div
+          className="flex items-center leading-none tracking-[-0.05em] font-black uppercase w-full justify-center"
+          style={{ fontSize: "clamp(4rem, 18vw, 15rem)" }}
+        >
+          {BRAND.split("").map((char, i) => (
+            <motion.span
+              key={i}
+              initial={{ opacity: 0, y: "25%", filter: "blur(16px)" }}
+              animate={
+                isInView
+                  ? { opacity: 1, y: "0%", filter: "blur(0px)" }
+                  : { opacity: 0, y: "25%", filter: "blur(16px)" }
+              }
+              transition={{
+                duration: 0.8,
+                delay: i * 0.08,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="inline-block text-background/6"
+            >
+              {char}
+            </motion.span>
+          ))}
+        </div>
+      </div>
+
       <div className="relative w-11/12 sm:w-10/12 mx-auto pt-12 sm:pt-16 pb-8 sm:pb-10">
 
-        {/* Top section: brand + newsletter + links */}
+        {/* ── Top: brand + newsletter + links ── */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 pb-10 sm:pb-12 border-b border-background/10">
 
           {/* Brand col */}
@@ -82,14 +124,14 @@ export function Footer() {
               <div className="flex size-9 items-center justify-center rounded-xl bg-background text-foreground font-bold text-lg tracking-tight">
                 E
               </div>
-              <span className="text-xl font-bold tracking-tight text-background">EduLearn</span>
+              <span className="text-xl font-bold tracking-tight text-background">Educore</span>
             </Link>
 
             <p className="text-sm text-background/50 leading-relaxed">
               Premium online education built for the next generation of learners. Learn from the world's best — on your own terms.
             </p>
 
-            {/* Newsletter — full width on mobile, capped on desktop */}
+            {/* Newsletter */}
             <div className="flex items-center gap-2 bg-background/8 border border-background/10 rounded-2xl p-1.5 w-full sm:max-w-xs">
               <input
                 type="email"
@@ -117,7 +159,7 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Links cols — 3 equal cols on mobile too */}
+          {/* Links cols */}
           <div className="lg:col-span-8 grid grid-cols-3 gap-4 sm:gap-8">
             {Object.entries(links).map(([category, items]) => (
               <div key={category}>
@@ -142,13 +184,13 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="pt-6 sm:pt-8 flex flex-col-reverse sm:flex-row items-center justify-between gap-3">
+        {/* ── Bottom bar ── */}
+        <div className="pt-4 border-t border-background/10 flex flex-col-reverse sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-background/30 tabular-nums">
-            © {new Date().getFullYear()} EduLearn Inc. All rights reserved.
+            © {new Date().getFullYear()} Educore Inc. All rights reserved.
           </p>
           <div className="flex items-center gap-1.5">
-            <span className="inline-flex size-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="inline-flex size-1.5 rounded-full bg-background/40 animate-pulse" />
             <span className="text-xs text-background/30">All systems operational</span>
           </div>
         </div>

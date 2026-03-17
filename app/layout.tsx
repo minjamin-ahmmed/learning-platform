@@ -1,18 +1,18 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Space_Grotesk } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { ThemeProvider } from 'next-themes'
 import './globals.css'
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk" });
 
 export const metadata: Metadata = {
-  title: 'EduLearn - Modern Online Learning Platform',
+  title: 'Educore - Modern Online Learning Platform',
   description: 'Transform your learning journey with expert-led courses, live classes, and personalized progress tracking. Join thousands of students mastering new skills.',
   keywords: ['online learning', 'courses', 'education', 'skill development', 'e-learning'],
-  authors: [{ name: 'EduLearn' }],
+  authors: [{ name: 'Educore' }],
   openGraph: {
-    title: 'EduLearn - Modern Online Learning Platform',
+    title: 'Educore - Modern Online Learning Platform',
     description: 'Transform your learning journey with expert-led courses and live classes.',
     type: 'website',
   },
@@ -42,7 +42,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className={`${spaceGrotesk.variable} font-sans antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
         </ThemeProvider>

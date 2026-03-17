@@ -18,8 +18,9 @@ export function CTASection() {
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
             <div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-balance">
-                Ready to start your learning journey?
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-[1.1]">
+                Ready to start your learning{" "}
+                <span className="italic font-semibold text-primary-foreground/60">journey?</span>
               </h2>
               <p className="text-primary-foreground/80 text-lg mb-10 max-w-md">
                 Join 5 million+ learners and start mastering the skills you need for your future.
@@ -46,7 +47,7 @@ export function CTASection() {
             </div>
 
             <div className="relative hidden lg:block">
-              <div className="absolute -top-24 -right-24 size-[30rem] bg-white/10 rounded-full blur-3xl" />
+              <div className="absolute -top-24 -right-24 size-[30rem] bg-primary-foreground/10 rounded-full blur-3xl" />
               <motion.div
                 initial={{ rotate: 10, y: 50 }}
                 whileInView={{ rotate: 5, y: 0 }}

@@ -86,7 +86,10 @@ export function FeaturedCourses() {
             <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest mb-2">
               Top Picks
             </p>
-            <h2 className="text-3xl font-bold tracking-tight">Featured Courses</h2>
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight leading-[1.1]">
+              Featured{" "}
+              <span className="italic font-semibold text-muted-foreground">Courses</span>
+            </h2>
             <p className="text-muted-foreground mt-1">Hand-picked courses from our top instructors.</p>
           </div>
           <div className="flex gap-2">
@@ -117,14 +120,14 @@ export function FeaturedCourses() {
                   alt={course.title}
                   className="object-cover w-full h-full transition-transform duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-linear-to-t from-foreground/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="absolute top-3 left-3">
                   <span className={`inline-flex items-center px-2.5 py-1 rounded-lg text-[11px] font-semibold tracking-wide uppercase backdrop-blur-sm ${tagStyles[course.tag] ?? "bg-foreground/10 text-foreground"}`}>
                     {course.tag}
                   </span>
                 </div>
                 <div className="absolute top-3 right-3">
-                  <span className="inline-flex items-center px-2.5 py-1 rounded-lg text-[11px] font-medium bg-black/60 text-white backdrop-blur-sm">
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-lg text-[11px] font-medium bg-foreground/60 text-background backdrop-blur-sm">
                     {course.category}
                   </span>
                 </div>

@@ -37,7 +37,7 @@ export function AppSidebar() {
           <div className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold text-xl shrink-0">
             E
           </div>
-          <span className="text-xl font-bold tracking-tight group-data-[collapsible=icon]:hidden">EduLearn</span>
+          <span className="text-xl font-bold tracking-tight group-data-[collapsible=icon]:hidden">Educore</span>
         </Link>
       </SidebarHeader>
       <SidebarContent className="p-4">

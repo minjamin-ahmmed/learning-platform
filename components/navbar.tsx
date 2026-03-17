@@ -4,11 +4,11 @@ import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
-import { Search, Menu, X, Bell, Moon, Sun } from "lucide-react"
-import { useTheme } from "next-themes"
+import { Search, Menu, X, Bell } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler"
 
 const navLinks = [
   { label: "Courses", href: "/courses" },
@@ -18,12 +18,8 @@ const navLinks = [
 ]
 
 export function Navbar() {
-  const { resolvedTheme, setTheme } = useTheme()
-  const [mounted, setMounted] = React.useState(false)
   const [isMobileOpen, setIsMobileOpen] = React.useState(false)
   const pathname = usePathname()
-
-  React.useEffect(() => setMounted(true), [])
 
   // Close mobile menu on route change
   React.useEffect(() => { setIsMobileOpen(false) }, [pathname])
@@ -41,7 +37,7 @@ export function Navbar() {
             <div className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold text-xl">
               E
             </div>
-            <span className="text-xl font-bold tracking-tight hidden sm:inline-block">EduLearn</span>
+            <span className="text-xl font-bold tracking-tight hidden sm:inline-block">Educore</span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-6">
@@ -68,19 +64,7 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center gap-2">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-              className="rounded-full"
-            >
-              {mounted && resolvedTheme === "dark" ? (
-                <Sun className="size-[1.2rem]" />
-              ) : (
-                <Moon className="size-[1.2rem]" />
-              )}
-              <span className="sr-only">Toggle theme</span>
-            </Button>
+            <AnimatedThemeToggler className="flex size-9 items-center justify-center rounded-full hover:bg-secondary transition-colors [&>svg]:size-[1.2rem]" />
 
             <Button variant="ghost" size="icon" className="rounded-full hidden sm:flex">
               <Bell className="size-5" />

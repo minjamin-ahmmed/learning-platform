@@ -10,7 +10,7 @@ export default function RegisterPage() {
             <div className="flex size-10 items-center justify-center rounded-xl bg-primary text-primary-foreground font-bold text-2xl">
               E
             </div>
-            <span className="text-2xl font-bold tracking-tight">EduLearn</span>
+            <span className="text-2xl font-bold tracking-tight">Educore</span>
           </Link>
           <h1 className="text-3xl font-bold tracking-tight">Create an account</h1>
           <p className="mt-2 text-muted-foreground">Start your learning journey today.</p>

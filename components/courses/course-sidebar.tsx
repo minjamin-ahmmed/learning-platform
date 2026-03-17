@@ -20,10 +20,10 @@ export function CourseSidebar() {
           className="object-cover w-full h-full brightness-75 group-hover:brightness-50 transition-all duration-500"
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-2.5">
-          <div className="size-14 rounded-full bg-white flex items-center justify-center text-black shadow-xl group-hover:scale-110 transition-transform duration-300">
+          <div className="size-14 rounded-full bg-background flex items-center justify-center text-foreground shadow-xl group-hover:scale-110 transition-transform duration-300">
             <Play className="size-6 fill-current ml-0.5" />
           </div>
-          <span className="text-white text-xs font-semibold tracking-wide">Preview this course</span>
+          <span className="text-background text-xs font-semibold tracking-wide">Preview this course</span>
         </div>
       </div>
 

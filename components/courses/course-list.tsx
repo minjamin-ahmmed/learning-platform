@@ -6,7 +6,7 @@ import { Star, Clock, Users, LayoutGrid, List } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
 import Link from "next/link"
-import MotionButton from "../ui/motion-button"
+import MotionButton from "@/components/ui/motion-button"
 
 const courses = [
   {
@@ -169,7 +169,7 @@ export function CourseList() {
                     alt={course.title}
                     className="object-cover w-full h-full transition-transform duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-linear-to-t from-foreground/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="absolute top-3 left-3">
                     <span className={`inline-flex items-center px-2.5 py-1 rounded-lg text-[11px] font-semibold tracking-wide uppercase backdrop-blur-sm ${tagStyles[course.tag] ?? "bg-foreground/10 text-foreground"}`}>
                       {course.tag}

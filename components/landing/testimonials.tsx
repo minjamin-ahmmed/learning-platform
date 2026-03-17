@@ -5,7 +5,7 @@ import { TestimonialsColumn } from "@/components/ui/testimonials-columns-1"
 
 const testimonials = [
   {
-    text: "EduLearn completely changed how I approach learning. The structured courses and live sessions kept me accountable every week.",
+    text: "Educore completely changed how I approach learning. The structured courses and live sessions kept me accountable every week.",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&auto=format&fit=crop&q=80",
     name: "Briana Patton",
     role: "Frontend Developer",
@@ -29,7 +29,7 @@ const testimonials = [
     role: "Product Manager",
   },
   {
-    text: "I've tried four other platforms. EduLearn is the only one where I actually finished a course. The UI just gets out of the way.",
+    text: "I've tried four other platforms. Educore is the only one where I actually finished a course. The UI just gets out of the way.",
     image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&auto=format&fit=crop&q=80",
     name: "Zainab Hussain",
     role: "Data Analyst",
@@ -83,11 +83,12 @@ export function Testimonials() {
                 Testimonials
               </div>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-center">
-              Loved by learners worldwide
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight leading-[1.1] text-center">
+              Loved by learners{" "}
+              <span className="italic font-semibold text-muted-foreground">worldwide</span>
             </h2>
             <p className="text-center mt-4 text-muted-foreground">
-              Join thousands of students who have already transformed their careers with EduLearn.
+              Join thousands of students who have already transformed their careers with Educore.
             </p>
           </motion.div>
 

@@ -35,9 +35,10 @@ export function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-primary-foreground to-primary-foreground/60 dark:from-foreground dark:to-muted-foreground"
+                className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] text-primary-foreground dark:text-foreground"
               >
-                Master any skill with world-class experts.
+                Master any skill with{" "}
+                <span className="italic font-semibold text-primary-foreground/60 dark:text-muted-foreground">world-class experts.</span>
               </motion.h1>
 
               <motion.p
