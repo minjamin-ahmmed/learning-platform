@@ -10,9 +10,9 @@ import { SplineScene } from "@/components/ui/splite"
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-background pt-6">
+    <section className="relative overflow-hidden bg-background py-6">
       <div className="w-11/12 sm:w-10/12 mx-auto relative z-10">
-        <Card className="w-full min-h-[500px] bg-foreground/[0.96] dark:bg-card border-border/20 dark:border-border/40 relative overflow-hidden py-0">
+        <Card className="w-full min-h-[500px] bg-black border-border/20 dark:border-border/40 relative overflow-hidden py-0">
           <Spotlight
             className="-top-40 left-0 md:left-60 md:-top-20"
             fill="white"

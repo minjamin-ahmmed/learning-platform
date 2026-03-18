@@ -31,7 +31,7 @@ const MotionButton: FC<MotionButtonProps> = ({ label, classes, onClick, inverted
       circleRef.current.style.width = '3rem'
     }
     if (textRef.current) {
-      textRef.current.style.color = inverted ? '#ffffff' : 'var(--color-foreground)'
+      textRef.current.style.color = ''
     }
   }
 
@@ -70,9 +70,11 @@ const MotionButton: FC<MotionButtonProps> = ({ label, classes, onClick, inverted
       {/* Label */}
       <span
         ref={textRef}
-        className="pointer-events-none absolute top-1/2 left-1/2 ml-3 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap text-center text-base font-medium tracking-tight"
+        className={cn(
+          'pointer-events-none absolute top-1/2 left-1/2 ml-3 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap text-center text-base font-medium tracking-tight',
+          inverted ? 'text-white' : 'text-foreground'
+        )}
         style={{
-          color: inverted ? '#ffffff' : 'var(--color-foreground)',
           transition: 'color 0.4s cubic-bezier(0.45, 0, 0.15, 1)',
         }}
       >
